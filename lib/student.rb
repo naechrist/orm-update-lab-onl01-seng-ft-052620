@@ -66,7 +66,7 @@ class Student
       WHERE name = ?
     SQL
       DB[:conn].execute(sql, name).map do |row|
-        
-      end
+        self.new_from_db(row)
+      end.first
   end
 end
